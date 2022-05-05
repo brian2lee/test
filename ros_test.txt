@@ -1,0 +1,14 @@
+mkdir –p ~/hello_ws/src 
+catkin_make
+
+catkin_create_pkg  hello_ros std_msgs rospy roscpp
+
+[open hello_ros/src CMakList.txt]
+add_executable(hello_ROS src/hello_ros.cpp) 
+target_link_libraries(hello_ROS ${catkin_LIBRARIES})
+
+cd ~/hello_ws
+catkin_make
+source devel/setup.bash
+
+rosrun hello hello_ws
